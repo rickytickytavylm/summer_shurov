@@ -173,7 +173,7 @@
     { net: "Instagram", handle: "@shurov_rc", url: "https://www.instagram.com/shurov_rc", brand: "instagram" },
     { net: "VK", handle: "dr.shurov", url: "https://vk.ru/dr.shurov", brand: "vk" },
     { net: "TikTok", handle: "@doctor.shurov", url: "https://www.tiktok.com/@doctor.shurov", brand: "tiktok" },
-    { net: "Telegram", handle: "Shurovhelp", url: "https://t.me/Shurovhelp", brand: "telegram" },
+    { net: "Telegram", handle: "Shurovhelp", url: "https://telegram.me/Shurovhelp", brand: "telegram" },
     { net: "MAX", handle: "Shurovhelp", url: "https://max.ru/Shurovhelp", brand: "max" },
     { net: "Дзен", handle: "klinika_dr_shurova", url: "https://dzen.ru/klinika_dr_shurova", brand: "dzen" },
     { net: "YouTube", handle: "@pervyy_shag", url: "https://youtube.com/@pervyy_shag", brand: "youtube" },
