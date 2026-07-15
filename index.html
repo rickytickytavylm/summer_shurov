@@ -41,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
   <link rel="preload" as="image" href="assets/webp/splash_mob.webp" media="(max-width: 1023px)" />
   <link rel="preload" as="image" href="assets/webp/splash_desktop.webp" media="(min-width: 1024px)" />
 
@@ -451,7 +451,7 @@
             <div class="help-card__body">
               <h3>СМИ и блогерам</h3>
               <p>Хотите поддержать челлендж как партнёр, блогер или СМИ? Свяжитесь с командой проекта.</p>
-              <a class="btn btn--outline btn--outline-dark" href="#" target="_blank" rel="noopener" data-analytics="partners_click" data-utm data-pending>Связаться</a>
+              <button type="button" class="btn btn--outline btn--outline-dark" data-open-modal="press" data-analytics="partners_click">Связаться</button>
             </div>
           </article>
         </div>
@@ -532,7 +532,23 @@
     </a>
   </nav>
 
-  <script src="videos.js?v=6"></script>
-  <script src="script.js?v=6"></script>
+  <!-- ПОПАП: форма для прессы (amoCRM) -->
+  <div class="modal" id="press-modal" aria-hidden="true">
+    <div class="modal__overlay" data-close-modal></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="press-modal-title">
+      <button type="button" class="modal__close" data-close-modal aria-label="Закрыть">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal__head">
+        <p class="modal__eyebrow">СМИ и блогерам</p>
+        <h2 class="modal__title" id="press-modal-title">Связаться с командой</h2>
+        <p class="modal__lede">Оставьте контакты — мы свяжемся с вами по вопросам партнёрства и сотрудничества.</p>
+      </div>
+      <div class="modal__body" id="press-form"></div>
+    </div>
+  </div>
+
+  <script src="videos.js?v=7"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>

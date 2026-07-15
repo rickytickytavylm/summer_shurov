@@ -2087,3 +2087,157 @@ a.ig-post:active {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* ===== Модальное окно (попап формы) ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+.modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 24, 16, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+  border-radius: 28px;
+  padding: clamp(24px, 5vw, 40px);
+  box-shadow: 0 32px 80px rgba(12, 24, 16, 0.28);
+  transform: translateY(18px) scale(0.98);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.modal.is-open .modal__dialog {
+  transform: translateY(0) scale(1);
+}
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(12, 24, 16, 0.06);
+  color: #0c1810;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.modal__close:hover { background: rgba(12, 24, 16, 0.12); }
+.modal__close svg { width: 20px; height: 20px; fill: none; }
+.modal__head { margin-bottom: 20px; padding-right: 32px; }
+.modal__eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--apple-green, #34c759);
+  margin: 0 0 8px;
+}
+.modal__title {
+  font-size: clamp(22px, 4vw, 28px);
+  line-height: 1.15;
+  margin: 0 0 8px;
+  color: #0c1810;
+}
+.modal__lede {
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(12, 24, 16, 0.6);
+  margin: 0;
+}
+.modal__body { min-height: 80px; }
+.modal__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  color: rgba(12, 24, 16, 0.5);
+  font-size: 14px;
+}
+
+/* ---- Причёсываем форму amoCRM под наш стиль ----
+   amoCRM вставляет свой HTML прямо в #press-form (не iframe),
+   поэтому мы можем переопределить его стили. Селекторы могут
+   измениться при крупном обновлении их вёрстки. */
+#press-form,
+#press-form * {
+  font-family: inherit !important;
+}
+/* Убираем их фон/тени/отступы — контейнер уже оформлен модалкой */
+#press-form .amoforms__fields-list,
+#press-form .amoforms__field,
+#press-form [class*="amoforms"] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#press-form .amoforms__field {
+  margin-bottom: 14px !important;
+}
+/* Поля ввода */
+#press-form input[type="text"],
+#press-form input[type="email"],
+#press-form input[type="tel"],
+#press-form input[type="number"],
+#press-form textarea,
+#press-form select,
+#press-form .amoforms__field__control {
+  width: 100% !important;
+  border: 1px solid rgba(12, 24, 16, 0.14) !important;
+  border-radius: 14px !important;
+  padding: 12px 14px !important;
+  font-size: 15px !important;
+  color: #0c1810 !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  transition: border-color 0.2s ease !important;
+}
+#press-form input:focus,
+#press-form textarea:focus,
+#press-form select:focus {
+  border-color: var(--apple-green, #34c759) !important;
+  outline: none !important;
+}
+/* Кнопка отправки */
+#press-form button,
+#press-form .amoforms__button,
+#press-form input[type="submit"] {
+  width: 100% !important;
+  border: none !important;
+  border-radius: 999px !important;
+  padding: 14px 20px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+  background: var(--apple-green, #34c759) !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  transition: filter 0.2s ease !important;
+}
+#press-form button:hover,
+#press-form .amoforms__button:hover,
+#press-form input[type="submit"]:hover {
+  filter: brightness(0.95) !important;
+}

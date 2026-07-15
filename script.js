@@ -452,4 +452,77 @@
 
     tryPlay();
   })();
+
+  /* ===== Модальное окно с формой amoCRM ===== */
+  (function () {
+    var modal = document.getElementById("press-modal");
+    if (!modal) return;
+
+    var formHost = document.getElementById("press-form");
+    var lastFocused = null;
+    var formLoaded = false;
+
+    function loadAmoForm() {
+      if (formLoaded || !formHost) return;
+      formLoaded = true;
+
+      formHost.innerHTML = '<div class="modal__loading">Загружаем форму…</div>';
+
+      // Конфиг amoCRM
+      (function (a, m, o, c, r, m2) {
+        a[o + c] = a[o + c] || {
+          setMeta: function (p) {
+            this.params = (this.params || []).concat([p]);
+          },
+        };
+        a[o + r] = a[o + r] || function (f) {
+          a[o + r].f = (a[o + r].f || []).concat([f]);
+        };
+        a[o + r]({ id: "1731270", hash: "f2395647aecae87a839850eb49e2d10d", locale: "ru" });
+        a[o + m2] = a[o + m2] || function (f, k) {
+          a[o + m2].f = (a[o + m2].f || []).concat([[f, k]]);
+        };
+      })(window, 0, "amo_forms_", "params", "load", "loaded");
+
+      // Форма amoCRM рендерится рядом со своим скриптом — кладём его в контейнер.
+      var s = document.createElement("script");
+      s.id = "amoforms_script_1731270";
+      s.async = true;
+      s.charset = "utf-8";
+      s.src = "https://forms.amocrm.ru/forms/assets/js/amoforms.js?1784117147";
+      formHost.appendChild(s);
+    }
+
+    function openModal() {
+      lastFocused = document.activeElement;
+      loadAmoForm();
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      var closeBtn = modal.querySelector(".modal__close");
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      if (lastFocused && lastFocused.focus) lastFocused.focus();
+    }
+
+    document.querySelectorAll("[data-open-modal='press']").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    modal.querySelectorAll("[data-close-modal]").forEach(function (el) {
+      el.addEventListener("click", closeModal);
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+    });
+  })();
 })();
