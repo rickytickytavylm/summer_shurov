@@ -1,0 +1,9 @@
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Исходники в корне (на сайте используются assets/video/)
+/girl.mp4
+/near_forest.mp4
+/shorts.mp4
+/stream.mp4
