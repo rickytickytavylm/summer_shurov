@@ -144,9 +144,13 @@
   <header class="header header--hero" id="topbar">
     <div class="header__inner">
       <a href="#hero" class="brand" data-scroll aria-label="Трезвое лето с Шуровым">
-        <picture class="brand__logo">
+        <picture class="brand__logo brand__logo--light">
           <source srcset="assets/webp/logo.webp" type="image/webp" />
           <img src="assets/logo.png" alt="Лето с Шуровым" width="1500" height="1022" />
+        </picture>
+        <picture class="brand__logo brand__logo--dark">
+          <source srcset="assets/webp/logo-dark.webp" type="image/webp" />
+          <img src="assets/logo-dark.png" alt="Лето с Шуровым" width="1500" height="1022" />
         </picture>
       </a>
       <nav class="header__nav" aria-label="Основная навигация">
@@ -467,14 +471,16 @@
           <p class="footer__domain">letoshurova.ru</p>
         </div>
 
-        <nav class="footer__nav" aria-label="Разделы сайта">
+        <nav class="footer__col footer__nav" aria-label="Разделы сайта">
+          <p class="footer__col-title">Разделы</p>
           <a href="#why" data-scroll>Челлендж</a>
           <a href="#how" data-scroll>Участие</a>
           <a href="#videos" data-scroll>Видео</a>
           <a href="#help" data-scroll>Помощь</a>
         </nav>
 
-        <div class="footer__contacts">
+        <div class="footer__col footer__contacts">
+          <p class="footer__col-title">Контакты</p>
           <a class="footer__link" href="mailto:info@perviyshag1.getcourse.ru">info@perviyshag1.getcourse.ru</a>
           <a class="footer__link" href="tel:+78003507074">8-800-350-70-74</a>
           <p class="footer__address">142720, Московская обл., г. Видное, РП Дрожжино, ш. Новое, д. 11, кв. 141</p>

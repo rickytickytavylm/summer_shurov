@@ -189,18 +189,23 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.04em; line-height: 
       backdrop-filter .35s ease, top .35s ease;
   }
 
-  /* Стартовая позиция — лёгкое стекло поверх hero */
+  /* Стартовая позиция — полностью прозрачная, без ориентиров шапки */
   .header.header--hero {
-    background: rgba(255,255,255,.1);
-    border-color: rgba(255,255,255,.22);
-    backdrop-filter: blur(14px) saturate(150%);
-    -webkit-backdrop-filter: blur(14px) saturate(150%);
-    box-shadow: 0 8px 32px rgba(0,0,0,.14);
+    background: transparent;
+    border-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
   }
 
   .header.header--hero .brand {
     filter: drop-shadow(0 2px 8px rgba(0,0,0,.28));
   }
+
+  /* Логотип: светлый на hero, тёмный при скролле */
+  .brand__logo--dark { display: none; }
+  .header.is-scrolled .brand__logo--light { display: none; }
+  .header.is-scrolled .brand__logo--dark { display: block; }
 
   .header.header--hero .header__nav a {
     color: rgba(255,255,255,.94);
@@ -571,7 +576,7 @@ body.is-splashing {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 16px 18px;
+  padding: 26px 20px;
   background: var(--apple-green-dark);
   color: #fff;
 }
@@ -617,7 +622,7 @@ body.is-splashing {
 
 @media (min-width: 480px) {
   .event-card { max-width: 640px; border-radius: 28px; }
-  .event-card__footer { padding: 18px 22px; }
+  .event-card__footer { padding: 30px 26px; }
   .event-card__app-name { font-size: 16px; }
 }
 
@@ -1583,28 +1588,34 @@ a.ig-post:active {
 .help-grid {
   display: grid;
   gap: 16px;
+  align-items: stretch;
 }
 
 .help-card--promo {
   padding: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .help-card__visual {
   margin: 0;
   line-height: 0;
   background: var(--bg-soft);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
 }
 
 .help-card__visual picture,
 .help-card__visual img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
 .help-card__visual--placeholder {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 16 / 10;
   background:
     linear-gradient(135deg, rgba(52,199,89,.08) 0%, rgba(52,199,89,.02) 100%),
     var(--bg-soft);
@@ -1613,6 +1624,14 @@ a.ig-post:active {
 
 .help-card__body {
   padding: clamp(22px, 4vw, 28px);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.help-card__body .btn {
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 .help-card--promo h3 {
@@ -1718,31 +1737,34 @@ a.ig-post:active {
 .footer {
   background: var(--apple-green-dark);
   color: rgba(255,255,255,.82);
-  padding: clamp(36px, 6vw, 52px) 0 calc(clamp(24px, 4vw, 32px) + env(safe-area-inset-bottom, 0px));
-  border-top: 1px solid rgba(255,255,255,.1);
+  padding: clamp(44px, 7vw, 72px) 0 calc(clamp(20px, 3vw, 28px) + env(safe-area-inset-bottom, 0px));
 }
 
 .footer__main {
   display: grid;
-  gap: 28px 32px;
-  padding-bottom: clamp(24px, 4vw, 32px);
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  gap: 32px 40px;
+  padding-bottom: clamp(28px, 4vw, 40px);
+  border-bottom: 1px solid rgba(255,255,255,.14);
+}
+
+.footer__brand {
+  max-width: 320px;
 }
 
 .footer__logo {
   display: inline-flex;
   line-height: 0;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .footer__logo img {
-  height: 84px;
+  height: 88px;
   width: auto;
 }
 
 .footer__tagline {
   margin: 0;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: #fff;
@@ -1750,25 +1772,35 @@ a.ig-post:active {
 }
 
 .footer__domain {
-  margin: 4px 0 0;
-  font-size: 12px;
+  margin: 6px 0 0;
+  font-size: 13px;
   font-weight: 500;
-  color: rgba(255,255,255,.45);
+  color: rgba(255,255,255,.55);
   letter-spacing: 0.02em;
+}
+
+.footer__col-title {
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
 }
 
 .footer__nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 20px;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .footer__nav a {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
-  color: rgba(255,255,255,.72);
+  color: rgba(255,255,255,.82);
   text-decoration: none;
   transition: color .15s;
+  width: max-content;
 }
 
 .footer__nav a:hover {
@@ -1779,12 +1811,12 @@ a.ig-post:active {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
+  gap: 10px;
 }
 
 .footer__link {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 600;
   color: #fff;
   text-decoration: none;
   transition: opacity .15s;
@@ -1795,18 +1827,18 @@ a.ig-post:active {
 }
 
 .footer__address {
-  margin: 6px 0 0;
-  max-width: 28ch;
-  font-size: 12px;
-  line-height: 1.5;
-  color: rgba(255,255,255,.5);
+  margin: 4px 0 0;
+  max-width: 30ch;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255,255,255,.6);
 }
 
 .footer__bar {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding-top: clamp(18px, 3vw, 22px);
+  padding-top: clamp(20px, 3vw, 28px);
 }
 
 .footer__legal {
@@ -1913,16 +1945,15 @@ a.ig-post:active {
 
 @media (min-width: 640px) {
   .footer__main {
-    grid-template-columns: 1.2fr 1fr 1.2fr;
+    grid-template-columns: 1.6fr 1fr 1.4fr;
     align-items: start;
   }
 
-  .footer__bar {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+  .footer__legal-toggle {
+    padding-right: 0;
   }
+
+  .footer__legal { flex: 1; }
 
   .footer__legal-grid {
     grid-template-columns: 1fr 1fr;
