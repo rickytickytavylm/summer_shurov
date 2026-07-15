@@ -203,7 +203,7 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.04em; line-height: 
   }
 
   /* Логотип: светлый на hero, тёмный при скролле */
-  .brand__logo--dark { display: none; }
+  .header .brand__logo--dark { display: none; }
   .header.is-scrolled .brand__logo--light { display: none; }
   .header.is-scrolled .brand__logo--dark { display: block; }
 
