@@ -466,7 +466,14 @@
       if (formLoaded || !formHost) return;
       formLoaded = true;
 
-      formHost.innerHTML = '<div class="modal__loading">Загружаем форму…</div>';
+      var loader = document.createElement("div");
+      loader.className = "modal__loading";
+      loader.textContent = "Загружаем форму…";
+      formHost.appendChild(loader);
+
+      function removeLoader() {
+        if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+      }
 
       // Конфиг amoCRM
       (function (a, m, o, c, r, m2) {
@@ -484,6 +491,13 @@
         };
       })(window, 0, "amo_forms_", "params", "load", "loaded");
 
+      // Колбэк amoCRM: срабатывает, когда форма отрисована.
+      if (typeof window.amo_forms_loaded === "function") {
+        window.amo_forms_loaded(function () {
+          removeLoader();
+        });
+      }
+
       // Форма amoCRM рендерится рядом со своим скриптом — кладём его в контейнер.
       var s = document.createElement("script");
       s.id = "amoforms_script_1731270";
@@ -491,6 +505,25 @@
       s.charset = "utf-8";
       s.src = "https://forms.amocrm.ru/forms/assets/js/amoforms.js?1784117147";
       formHost.appendChild(s);
+
+      // Наблюдаем за контейнером: как только amoCRM вставит форму — убираем плейсхолдер.
+      var mo = new MutationObserver(function () {
+        var hasForm = formHost.querySelector("form, iframe, .amoforms__fields-list, [class*='amoforms']");
+        if (hasForm) {
+          removeLoader();
+          mo.disconnect();
+        }
+      });
+      mo.observe(formHost, { childList: true, subtree: true });
+
+      // Фолбэк: если форма не появилась за 12 секунд — показываем прямую ссылку.
+      setTimeout(function () {
+        if (formHost.querySelector("form, iframe, .amoforms__fields-list, [class*='amoforms']")) return;
+        mo.disconnect();
+        formHost.innerHTML =
+          '<p class="modal__loading">Форма не загрузилась. Напишите нам напрямую: ' +
+          '<a href="mailto:info@perviyshag1.getcourse.ru" style="color:var(--apple-green,#34c759);font-weight:600;">info@perviyshag1.getcourse.ru</a></p>';
+      }, 12000);
     }
 
     function openModal() {
