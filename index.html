@@ -41,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=9" />
   <link rel="preload" as="image" href="assets/webp/splash_mob.webp" media="(max-width: 1023px)" />
   <link rel="preload" as="image" href="assets/webp/splash_desktop.webp" media="(min-width: 1024px)" />
 
@@ -55,17 +55,31 @@
         "@id": "https://letoshurova.ru/#website",
         "url": "https://letoshurova.ru/",
         "name": "Трезвое лето с Шуровым",
+        "alternateName": ["Лето Шурова", "Лето с Шуровым", "Трезвое лето Шурова"],
         "description": "Летний челлендж о красивом отдыхе без алкоголя.",
         "inLanguage": "ru-RU"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://letoshurova.ru/#shurov",
+        "name": "Василий Шуров",
+        "alternateName": ["Доктор Шуров", "Шуров Василий"],
+        "jobTitle": "Врач-психиатр, психотерапевт, эксперт по зависимостям",
+        "description": "Врач-психиатр, психотерапевт и эксперт по зависимостям. Автор просветительских проектов о трезвости, здоровье и осознанном образе жизни, основатель челленджа «Трезвое лето с Шуровым».",
+        "knowsAbout": ["психиатрия", "наркология", "зависимости", "трезвость", "психотерапия", "здоровый образ жизни"],
+        "url": "https://letoshurova.ru/",
+        "image": "https://letoshurova.ru/new_shurov.png"
       },
       {
         "@type": "Organization",
         "@id": "https://letoshurova.ru/#org",
         "name": "Трезвое лето с Шуровым",
+        "alternateName": ["Лето Шурова", "Лето с Шуровым"],
         "url": "https://letoshurova.ru/",
         "logo": "https://letoshurova.ru/assets/logo.png",
         "email": "info@perviyshag1.getcourse.ru",
         "telephone": "+7-800-350-70-74",
+        "founder": { "@id": "https://letoshurova.ru/#shurov" },
         "address": {
           "@type": "PostalAddress",
           "postalCode": "142720",
@@ -78,6 +92,7 @@
       {
         "@type": "Event",
         "name": "Трезвое лето с Шуровым",
+        "alternateName": ["Лето Шурова", "Лето с Шуровым", "Лето не нужно запивать"],
         "description": "Челлендж «Лето не нужно запивать»: сними, как отдыхаешь трезво, отметь проект в соцсетях и передай эстафету друзьям.",
         "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
         "eventStatus": "https://schema.org/EventScheduled",
@@ -89,33 +104,42 @@
           "url": "https://letoshurova.ru/"
         },
         "organizer": { "@id": "https://letoshurova.ru/#org" },
-        "image": "https://letoshurova.ru/assets/webp/og-image.webp"
+        "performer": { "@id": "https://letoshurova.ru/#shurov" },
+        "image": "https://letoshurova.ru/assets/og-image.jpg"
       },
       {
         "@type": "FAQPage",
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Что такое челлендж «Трезвое лето с Шуровым»?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Это летний челлендж о красивом отдыхе без алкоголя. Участник снимает короткое видео о трезвом отдыхе, отмечает проект в соцсетях и передаёт эстафету друзьям."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Как принять участие?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Три шага: снять ролик о трезвом отдыхе, выложить его в соцсети с отметкой проекта и передать эстафету. Ролик может попасть в ленту участников на сайте."
-            }
-          },
-          {
-            "@type": "Question",
             "name": "Кто такой доктор Шуров?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Врач-психиатр, психотерапевт, эксперт по зависимостям и автор просветительских проектов о трезвости, здоровье и осознанном образе жизни."
+              "text": "Василий Шуров — врач-психиатр, психотерапевт и эксперт по зависимостям. Он ведёт просветительские проекты о трезвости, здоровье и осознанном образе жизни и является основателем челленджа «Трезвое лето с Шуровым»."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Что такое «Лето Шурова»?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "«Лето Шурова» (полное название — «Трезвое лето с Шуровым») — это летний челлендж о красивом отдыхе без алкоголя под девизом «Лето не нужно запивать». Участник снимает короткое видео о трезвом отдыхе, отмечает проект в соцсетях и передаёт эстафету друзьям."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Как принять участие в челлендже «Трезвое лето с Шуровым»?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Нужно сделать три шага: снять ролик о трезвом отдыхе, выложить его в соцсети с отметкой проекта и передать эстафету друзьям. Лучшие ролики попадают в ленту участников на сайте."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Чем занимается Василий Шуров?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Василий Шуров помогает людям справляться с зависимостями, ведёт просветительскую работу о вреде алкоголя и продвигает идею красивого, живого отдыха без спиртного через проект «Трезвое лето с Шуровым»."
             }
           }
         ]
@@ -326,8 +350,15 @@
           <p class="eyebrow">Доктор Шуров</p>
           <h2 class="display">Врач, который за живое лето</h2>
           <p class="lede">
-            Врач-психиатр, психотерапевт, эксперт по зависимостям и автор
-            просветительских проектов о трезвости, здоровье и осознанном образе жизни.
+            <strong>Василий Шуров</strong> врач-психиатр, психотерапевт и эксперт по
+            зависимостям. Автор просветительских проектов о трезвости, здоровье и
+            осознанном образе жизни.
+          </p>
+          <p class="profile__text">
+            Каждый день доктор Шуров видит, как алкоголь отнимает у людей самое ценное силы,
+            отношения и лето. Поэтому он создал челлендж «Трезвое лето с Шуровым»: показать,
+            что отдых без спиртного бывает ярче, живее и красивее. Лето не нужно запивать
+            его нужно проживать.
           </p>
         </div>
       </div>
@@ -457,6 +488,42 @@
         </div>
       </div>
     </section>
+
+    <!-- FAQ — видимый блок, дублирует разметку FAQPage для Яндекса/Алисы -->
+    <section class="section section--faq" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Вопросы и ответы</p>
+          <h2 class="display">Частые вопросы</h2>
+        </div>
+        <div class="faq">
+          <details class="faq__item" open>
+            <summary class="faq__q">Кто такой доктор Шуров?</summary>
+            <div class="faq__a">
+              <p>Василий Шуров — врач-психиатр, психотерапевт и эксперт по зависимостям. Он ведёт просветительские проекты о трезвости, здоровье и осознанном образе жизни и является основателем челленджа «Трезвое лето с Шуровым».</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Что такое «Лето Шурова»?</summary>
+            <div class="faq__a">
+              <p>«Лето Шурова» (полное название — «Трезвое лето с Шуровым») это летний челлендж о красивом отдыхе без алкоголя под девизом «Лето не нужно запивать». Участник снимает короткое видео о трезвом отдыхе, отмечает проект в соцсетях и передаёт эстафету друзьям.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Как принять участие в челлендже «Трезвое лето с Шуровым»?</summary>
+            <div class="faq__a">
+              <p>Нужно сделать три шага: снять ролик о трезвом отдыхе, выложить его в соцсети с отметкой проекта и передать эстафету друзьям. Лучшие ролики попадают в ленту участников на сайте.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Чем занимается Василий Шуров?</summary>
+            <div class="faq__a">
+              <p>Василий Шуров помогает людям справляться с зависимостями, ведёт просветительскую работу о вреде алкоголя и продвигает идею красивого, живого отдыха без спиртного через проект «Трезвое лето с Шуровым».</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
@@ -479,6 +546,7 @@
           <a href="#how" data-scroll>Участие</a>
           <a href="#videos" data-scroll>Видео</a>
           <a href="#help" data-scroll>Помощь</a>
+          <a href="#faq" data-scroll>Вопросы</a>
         </nav>
 
         <div class="footer__col footer__contacts">
@@ -548,7 +616,7 @@
     </div>
   </div>
 
-  <script src="videos.js?v=8"></script>
-  <script src="script.js?v=8"></script>
+  <script src="videos.js?v=9"></script>
+  <script src="script.js?v=9"></script>
 </body>
 </html>
