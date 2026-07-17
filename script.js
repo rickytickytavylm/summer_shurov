@@ -130,7 +130,7 @@
    * Мобильный tab bar: подсветка активной секции при скролле.
    * ------------------------------------------------------------------ */
   var tabItems = Array.prototype.slice.call(document.querySelectorAll(".tabbar__item"));
-  var watched = ["hero", "how", "videos", "help"];
+  var watched = ["hero", "participate", "videos", "help"];
   var sections = watched.map(function (id) { return document.getElementById(id); }).filter(Boolean);
 
   if ("IntersectionObserver" in window && sections.length) {
@@ -153,7 +153,7 @@
   // Настоящие логотипы (Simple Icons, скачаны локально в assets/icons).
   // Для соцсетей без иконки в библиотеке — фирменная монограмма.
   var BRANDS = {
-    instagram: { file: "instagram" },
+    instagram: { restricted: true },
     vk: { file: "vk" },
     tiktok: { file: "tiktok" },
     telegram: { file: "telegram" },
@@ -167,10 +167,9 @@
     looky: { img: "looky.webp", full: true }
   };
 
+  // Instagram-аккаунты вынесены в конец списка (юр. требование:
+  // без логотипа, только текст + сноска про Meta).
   var SOCIALS = [
-    { net: "Instagram", handle: "@shurov_school", url: "https://www.instagram.com/shurov_school", brand: "instagram" },
-    { net: "Instagram", handle: "@dr.shurov", url: "https://www.instagram.com/dr.shurov", brand: "instagram" },
-    { net: "Instagram", handle: "@shurov_rc", url: "https://www.instagram.com/shurov_rc", brand: "instagram" },
     { net: "VK", handle: "dr.shurov", url: "https://vk.ru/dr.shurov", brand: "vk" },
     { net: "TikTok", handle: "@doctor.shurov", url: "https://www.tiktok.com/@doctor.shurov", brand: "tiktok" },
     { net: "Telegram", handle: "Shurovhelp", url: "https://telegram.me/Shurovhelp", brand: "telegram" },
@@ -181,11 +180,18 @@
     { net: "Одноклассники", handle: "group", url: "https://ok.ru/group/70000035076228", brand: "ok" },
     { net: "Pinterest", handle: "dr_shurova", url: "https://ru.pinterest.com/dr_shurova", brand: "pinterest" },
     { net: "Yappy", handle: "dr.shurov", url: "https://yappy.media/n/dr.shurov", brand: "yappy" },
-    { net: "Looky", handle: "dr.shurov", url: "https://share.looky.com/profile/dr.shurov", brand: "looky" }
+    { net: "Looky", handle: "dr.shurov", url: "https://share.looky.com/profile/dr.shurov", brand: "looky" },
+    { net: "Instagram", handle: "@shurov_school", url: "https://www.instagram.com/shurov_school", brand: "instagram", restricted: true },
+    { net: "Instagram", handle: "@dr.shurov", url: "https://www.instagram.com/dr.shurov", brand: "instagram", restricted: true },
+    { net: "Instagram", handle: "@shurov_rc", url: "https://www.instagram.com/shurov_rc", brand: "instagram", restricted: true }
   ];
 
   function brandIcon(brand) {
     var b = BRANDS[brand] || { mono: "•", c: "#1c1c1e" };
+    if (b.restricted) {
+      // Без брендового логотипа — нейтральный текстовый маркер.
+      return '<span class="social-card__ic social-card__ic--text"><span>Соцсеть</span></span>';
+    }
     if (b.full) {
       var cls = "social-card__ic social-card__ic--full" + (b.pad ? " social-card__ic--pad" : "");
       return '<span class="' + cls + '"><img src="assets/icons/' + b.img + '" alt="" width="56" height="56" loading="lazy" /></span>';
@@ -201,11 +207,12 @@
     var html = SOCIALS.map(function (s) {
       var slug = "social_" + s.brand;
       var href = withUtm(s.url, slug);
+      var net = s.restricted ? s.net + "*" : s.net;
       return (
-        '<a class="social-card" href="' + href + '" target="_blank" rel="noopener" ' +
+        '<a class="social-card' + (s.restricted ? " social-card--restricted" : "") + '" href="' + href + '" target="_blank" rel="noopener" ' +
         'data-analytics="' + slug + '">' +
           brandIcon(s.brand) +
-          '<span class="social-card__net">' + s.net + "</span>" +
+          '<span class="social-card__net">' + net + "</span>" +
           '<span class="social-card__handle">' + s.handle + "</span>" +
         "</a>"
       );
@@ -249,6 +256,13 @@
     return "";
   }
 
+  // Instagram помечаем звёздочкой (сноска про Meta ниже в ленте).
+  function netLabel(net) {
+    var n = (net || "").toLowerCase();
+    if (n.indexOf("instagram") >= 0) return net + "*";
+    return net;
+  }
+
   function avatarMarkup(v) {
     if (!v.avatar) {
       return '<span class="ig-post__avatar">' + escapeHtml(initials(v.author)) + '</span>';
@@ -290,7 +304,7 @@
               avatarMarkup(v) +
               '<span class="ig-post__meta">' +
                 '<span class="ig-post__name">' + escapeHtml(v.author) + '</span>' +
-                '<span class="ig-post__net">' + escapeHtml(v.network) + " · " + formatDate(v.date) + '</span>' +
+                '<span class="ig-post__net">' + escapeHtml(netLabel(v.network)) + " · " + formatDate(v.date) + '</span>' +
               '</span>' +
             '</span>' +
             pin +
@@ -557,5 +571,25 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
     });
+  })();
+
+  /* ===== Анимация появления шагов «Как участвовать» ===== */
+  (function () {
+    var list = document.getElementById("p-steps");
+    if (!list) return;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || !("IntersectionObserver" in window)) {
+      list.classList.add("is-in");
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          list.classList.add("is-in");
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    io.observe(list);
   })();
 })();

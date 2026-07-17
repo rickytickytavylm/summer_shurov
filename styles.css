@@ -2088,6 +2088,105 @@ a.ig-post:active {
   * { transition: none !important; }
 }
 
+/* ===== Как участвовать — шаги ===== */
+.section--participate { padding-top: clamp(48px, 8vw, 88px); }
+.p-steps {
+  list-style: none;
+  margin: clamp(28px, 5vw, 44px) auto 0;
+  padding: 0;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.p-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 22px;
+  background: #fff;
+  border: 1px solid rgba(12, 24, 16, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(12, 24, 16, 0.04);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.p-steps.is-in .p-step { opacity: 1; transform: translateY(0); }
+.p-steps.is-in .p-step:nth-child(1) { transition-delay: 0.05s; }
+.p-steps.is-in .p-step:nth-child(2) { transition-delay: 0.13s; }
+.p-steps.is-in .p-step:nth-child(3) { transition-delay: 0.21s; }
+.p-steps.is-in .p-step:nth-child(4) { transition-delay: 0.29s; }
+.p-steps.is-in .p-step:nth-child(5) { transition-delay: 0.37s; }
+.p-step__num {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--apple-green, #34c759);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(52, 199, 89, 0.35);
+}
+.p-step__body { padding-top: 2px; }
+.p-step__title {
+  margin: 0 0 4px;
+  font-size: clamp(17px, 2.6vw, 19px);
+  font-weight: 700;
+  color: #0c1810;
+}
+.p-step__text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(12, 24, 16, 0.62);
+}
+.p-cta {
+  margin-top: clamp(26px, 4vw, 36px);
+  text-align: center;
+}
+
+/* ===== Сноски (Meta и пр.) ===== */
+.social-note {
+  margin: 22px auto 0;
+  max-width: 720px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(12, 24, 16, 0.45);
+}
+.section--feed .social-note { color: rgba(12, 24, 16, 0.5); }
+
+/* Нейтральный текстовый маркер вместо запрещённого логотипа */
+.social-card__ic--text {
+  background: rgba(12, 24, 16, 0.05);
+  color: rgba(12, 24, 16, 0.55);
+}
+.social-card__ic--text span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Ссылки на правовые документы в футере */
+.footer__legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 14px 0 4px;
+}
+.footer__legal-links a {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer__legal-links a:hover { color: #fff; }
+
 /* ===== FAQ ===== */
 .section--faq { padding-bottom: clamp(48px, 8vw, 96px); }
 .faq {

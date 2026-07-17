@@ -41,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="stylesheet" href="styles.css?v=10" />
   <link rel="preload" as="image" href="assets/webp/splash_mob.webp" media="(max-width: 1023px)" />
   <link rel="preload" as="image" href="assets/webp/splash_desktop.webp" media="(min-width: 1024px)" />
 
@@ -197,11 +197,11 @@
       </a>
       <nav class="header__nav" aria-label="Основная навигация">
         <a href="#why" data-scroll>Челлендж</a>
-        <a href="#how" data-scroll>Участие</a>
+        <a href="#participate" data-scroll>Участие</a>
         <a href="#videos" data-scroll>Видео</a>
         <a href="#help" data-scroll>Помощь</a>
       </nav>
-      <a href="#how" class="btn btn--hero btn--sm header__cta" data-scroll data-analytics="cta_join_nav">Участвовать</a>
+      <a href="#participate" class="btn btn--hero btn--sm header__cta" data-scroll data-analytics="cta_join_nav">Участвовать</a>
     </div>
   </header>
 
@@ -228,10 +228,101 @@
           <h1 class="hero__title">Трезвое лето<br />с Шуровым</h1>
           <p class="hero__subtitle">Лето не нужно запивать</p>
           <div class="hero__actions">
-            <a href="#how" class="btn btn--white" data-scroll data-analytics="cta_join_hero">Принять участие</a>
+            <a href="#participate" class="btn btn--white" data-scroll data-analytics="cta_join_hero">Принять участие</a>
             <a href="#why" class="btn btn--glass" data-scroll>О челлендже</a>
           </div>
           <p class="hero__tagline">#вашвыбор · #летоСШуровым</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- КАК УЧАСТВОВАТЬ — 5 шагов -->
+    <section class="section section--participate" id="participate">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Как участвовать</p>
+          <h2 class="display">Пять простых шагов</h2>
+          <p class="lede lede--center">Присоединиться к челленджу можно за пару минут прямо со смартфона.</p>
+        </div>
+        <ol class="p-steps" id="p-steps">
+          <li class="p-step">
+            <span class="p-step__num">1</span>
+            <div class="p-step__body">
+              <h3 class="p-step__title">Снимите видео</h3>
+              <p class="p-step__text">Короткий ролик о своём летнем отдыхе без алкоголя.</p>
+            </div>
+          </li>
+          <li class="p-step">
+            <span class="p-step__num">2</span>
+            <div class="p-step__body">
+              <h3 class="p-step__title">Отметьте доктора Шурова</h3>
+              <p class="p-step__text">Отметьте доктора Шурова или добавьте его в соавторы.</p>
+            </div>
+          </li>
+          <li class="p-step">
+            <span class="p-step__num">3</span>
+            <div class="p-step__body">
+              <h3 class="p-step__title">Опубликуйте</h3>
+              <p class="p-step__text">Выложите ролик в любой удобной социальной сети.</p>
+            </div>
+          </li>
+          <li class="p-step">
+            <span class="p-step__num">4</span>
+            <div class="p-step__body">
+              <h3 class="p-step__title">Добавьте хэштеги</h3>
+              <p class="p-step__text">#ЛетоСШуровым и #ВашВыбор.</p>
+            </div>
+          </li>
+          <li class="p-step">
+            <span class="p-step__num">5</span>
+            <div class="p-step__body">
+              <h3 class="p-step__title">Позовите друзей</h3>
+              <p class="p-step__text">Пригласите близких присоединиться к челленджу.</p>
+            </div>
+          </li>
+        </ol>
+        <div class="p-cta">
+          <a href="#how" class="btn btn--green" data-scroll data-analytics="cta_participate_socials">Выбрать соцсеть для отметки</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ВЫБЕРИ СОЦСЕТЬ -->
+    <section class="section section--soft section--how" id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Аккаунты для отметки</p>
+          <h2 class="display">Выбери свою соцсеть</h2>
+          <p class="lede lede--center">Отметь нас в удобной платформе. Все ссылки открываются в новой вкладке.</p>
+        </div>
+        <div class="social-list" id="socials"></div>
+        <p class="social-note" id="meta-note">* Instagram принадлежит компании Meta Platforms Inc., признанной экстремистской организацией и запрещённой на территории РФ.</p>
+      </div>
+    </section>
+
+    <!-- ШУРОВ -->
+    <section class="section section--profile" id="shurov">
+      <div class="wrap profile">
+        <figure class="profile__media">
+          <picture>
+            <source srcset="assets/webp/new_shurov.webp" type="image/webp" />
+            <img src="new_shurov.png" alt="Доктор Шуров на отдыхе" width="1659" height="948" loading="lazy" decoding="async" />
+          </picture>
+        </figure>
+        <div class="profile__copy">
+          <p class="eyebrow">Доктор Шуров</p>
+          <h2 class="display">Врач, который за живое лето</h2>
+          <p class="lede">
+            <strong>Василий Шуров</strong> врач-психиатр, психотерапевт и эксперт по
+            зависимостям. Автор просветительских проектов о трезвости, здоровье и
+            осознанном образе жизни.
+          </p>
+          <p class="profile__text">
+            Каждый день доктор Шуров видит, как алкоголь отнимает у людей самое ценное силы,
+            отношения и лето. Поэтому он создал челлендж «Трезвое лето с Шуровым»: показать,
+            что отдых без спиртного бывает ярче, живее и красивее. Лето не нужно запивать
+            его нужно проживать.
+          </p>
         </div>
       </div>
     </section>
@@ -296,18 +387,6 @@
       </div>
     </section>
 
-    <!-- ВЫБЕРИ СОЦСЕТЬ -->
-    <section class="section section--soft section--how" id="how">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Аккаунты для отметки</p>
-          <h2 class="display">Выбери свою соцсеть</h2>
-          <p class="lede lede--center">Отметь нас в удобной платформе. Все ссылки открываются в новой вкладке.</p>
-        </div>
-        <div class="social-list" id="socials"></div>
-      </div>
-    </section>
-
     <!-- ПОЧЕМУ ВАЖНО -->
     <section class="section section--green section--why" id="why">
       <video class="why-video" autoplay muted loop playsinline preload="auto"
@@ -353,40 +432,14 @@
       </div>
     </section>
 
-    <!-- ШУРОВ -->
-    <section class="section section--profile" id="shurov">
-      <div class="wrap profile">
-        <figure class="profile__media">
-          <picture>
-            <source srcset="assets/webp/new_shurov.webp" type="image/webp" />
-            <img src="new_shurov.png" alt="Доктор Шуров на отдыхе" width="1659" height="948" loading="lazy" decoding="async" />
-          </picture>
-        </figure>
-        <div class="profile__copy">
-          <p class="eyebrow">Доктор Шуров</p>
-          <h2 class="display">Врач, который за живое лето</h2>
-          <p class="lede">
-            <strong>Василий Шуров</strong> врач-психиатр, психотерапевт и эксперт по
-            зависимостям. Автор просветительских проектов о трезвости, здоровье и
-            осознанном образе жизни.
-          </p>
-          <p class="profile__text">
-            Каждый день доктор Шуров видит, как алкоголь отнимает у людей самое ценное силы,
-            отношения и лето. Поэтому он создал челлендж «Трезвое лето с Шуровым»: показать,
-            что отдых без спиртного бывает ярче, живее и красивее. Лето не нужно запивать
-            его нужно проживать.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ВИДЕО — лента как в Instagram -->
+    <!-- ВИДЕО — лента участников -->
     <section class="section section--feed" id="videos">
       <div class="wrap">
         <div class="section-head">
           <h2 class="display">Трезвое лето в движении</h2>
         </div>
         <div class="feed" id="video-grid"></div>
+        <p class="social-note">* Instagram принадлежит компании Meta Platforms Inc., признанной экстремистской организацией и запрещённой на территории РФ.</p>
       </div>
     </section>
 
@@ -405,7 +458,7 @@
               <p class="event-card__app-name">Трезвое лето с Шуровым</p>
               <p class="event-card__app-tag">Лето не нужно запивать</p>
             </div>
-            <a href="#how" class="event-card__get" data-scroll data-analytics="cta_join_steps">Участвовать</a>
+            <a href="#participate" class="event-card__get" data-scroll data-analytics="cta_join_steps">Участвовать</a>
           </footer>
         </article>
       </div>
@@ -416,19 +469,19 @@
       <div class="wrap">
         <div class="section-head section-head--left">
           <p class="eyebrow">Благотворительный фонд</p>
-          <h2 class="display">«Подари жизнь»</h2>
+          <h2 class="display">«Мы Выбрали Жизнь»</h2>
         </div>
         <article class="partner-card">
           <figure class="partner-card__visual">
             <picture>
-              <source srcset="assets/webp/partners/save_lives.webp" type="image/webp" />
-              <img src="save_lives.png" alt="Благотворительный фонд «Подари жизнь»" width="1672" height="941" loading="lazy" decoding="async" />
+              <source srcset="assets/webp/partners/new_fond.webp" type="image/webp" />
+              <img src="new_fond.JPG" alt="Благотворительный фонд «Мы Выбрали Жизнь»" width="1280" height="1280" loading="lazy" decoding="async" />
             </picture>
           </figure>
           <div class="partner-card__body">
-            <p class="lede">Поддержите фонд, который помогает людям, столкнувшимся с зависимостью.</p>
-            <a class="btn btn--green" href="https://qr.nspk.ru/BS2A002D0F65AFQT8IUAR42FJ8ASR7A6"
-               target="_blank" rel="noopener" data-analytics="fund_donate" data-utm>
+            <p class="lede">Фонд помогает людям с зависимостями, их семьям, пожилым гражданам и ветеранам вернуться к полноценной жизни.</p>
+            <a class="btn btn--green" href="https://myvybrali-zhizn.ru/"
+               target="_blank" rel="noopener" data-analytics="fund_visit" data-utm>
               Поддержать фонд
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -437,35 +490,7 @@
       </div>
     </section>
 
-    <!-- BIOBORO -->
-    <section class="section section--soft" id="bioboro">
-      <div class="wrap">
-        <div class="section-head section-head--left">
-          <p class="eyebrow">Партнёр проекта</p>
-          <h2 class="display">БИОБОРО</h2>
-        </div>
-        <article class="partner-card">
-          <figure class="partner-card__visual">
-            <picture>
-              <source srcset="assets/webp/partners/for_bioboro.webp" type="image/webp" />
-              <img src="for_bioboro.png" alt="БИОБОРО, комплекс для поддержания здоровья" width="1662" height="946" loading="lazy" decoding="async" />
-            </picture>
-          </figure>
-          <div class="partner-card__body">
-            <p class="lede">Природный комплекс для поддержания здоровья и восстановления. «Золотой мост к здоровью».</p>
-            <div class="btn-group">
-              <a class="btn btn--store" href="https://bioboro.mobz.click/challenge" target="_blank" rel="noopener" data-analytics="bioboro_wb" data-utm>
-                <img class="btn__ic" src="assets/icons/wild.webp" alt="" width="20" height="20" loading="lazy" />Wildberries
-              </a>
-              <a class="btn btn--store" href="https://bioboro.mobz.click/challengeOZON" target="_blank" rel="noopener" data-analytics="bioboro_ozon" data-utm>
-                <img class="btn__ic" src="assets/icons/ozon.webp" alt="" width="20" height="20" loading="lazy" />Ozon
-              </a>
-              <a class="btn btn--outline btn--outline-dark" href="https://clck.ru/3Uda4L" target="_blank" rel="noopener" data-analytics="bioboro_site" data-utm>Сайт</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+    <!-- BIOBORO убрано: рекламный баннер (ФЗ «О рекламе»). Для возврата нужен договор + маркировка ОРД (erid). -->
 
     <!-- ПОМОЩЬ -->
     <section class="section section--help" id="help">
@@ -559,7 +584,7 @@
         <nav class="footer__col footer__nav" aria-label="Разделы сайта">
           <p class="footer__col-title">Разделы</p>
           <a href="#why" data-scroll>Челлендж</a>
-          <a href="#how" data-scroll>Участие</a>
+          <a href="#participate" data-scroll>Участие</a>
           <a href="#videos" data-scroll>Видео</a>
           <a href="#help" data-scroll>Помощь</a>
           <a href="#faq" data-scroll>Вопросы</a>
@@ -590,8 +615,13 @@
               </div>
             </div>
             <p class="footer__disclaimer">Информация на сайте не является медицинской услугой и не заменяет консультацию специалиста. 18+</p>
+            <p class="footer__disclaimer">Instagram принадлежит компании Meta Platforms Inc., признанной экстремистской организацией и запрещённой на территории РФ.</p>
           </div>
         </details>
+        <nav class="footer__legal-links" aria-label="Правовые документы">
+          <a href="privacy.html">Политика конфиденциальности</a>
+          <a href="privacy.html#consent">Согласие на обработку ПДн</a>
+        </nav>
         <p class="footer__copy">© <span id="year"></span> Трезвое лето с Шуровым</p>
       </div>
     </div>
@@ -602,7 +632,7 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
       <span>Главная</span>
     </a>
-    <a href="#how" class="tabbar__item" data-scroll data-target="how">
+    <a href="#participate" class="tabbar__item" data-scroll data-target="participate">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 .9.56l2.2 4.46 4.92.72a1 1 0 0 1 .55 1.7l-3.56 3.47.84 4.9a1 1 0 0 1-1.45 1.05L12 19.77l-4.4 2.32a1 1 0 0 1-1.45-1.05l.84-4.9L3.43 12.7a1 1 0 0 1 .55-1.7l4.92-.72 2.2-4.46A1 1 0 0 1 12 3z"/></svg>
       <span>Участие</span>
     </a>
@@ -632,7 +662,7 @@
     </div>
   </div>
 
-  <script src="videos.js?v=9"></script>
-  <script src="script.js?v=9"></script>
+  <script src="videos.js?v=10"></script>
+  <script src="script.js?v=10"></script>
 </body>
 </html>
