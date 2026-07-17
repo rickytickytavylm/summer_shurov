@@ -2161,6 +2161,14 @@ a.ig-post:active {
 }
 .section--feed .social-note { color: rgba(12, 24, 16, 0.5); }
 
+/* Маркировка рекламы (ОРД) */
+.partner-card__ad {
+  margin: 14px 0 0;
+  font-size: 11px;
+  line-height: 1.4;
+  color: rgba(12, 24, 16, 0.4);
+}
+
 /* Нейтральный текстовый маркер вместо запрещённого логотипа */
 .social-card__ic--text {
   background: rgba(12, 24, 16, 0.05);
