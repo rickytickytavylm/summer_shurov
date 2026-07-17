@@ -1559,6 +1559,28 @@ a.ig-post:active {
   gap: 8px;
 }
 
+/* Баннеры фонда/биоборо: не даём картинкам разрастаться */
+#fund .partner-card__visual img {
+  width: auto;
+  max-width: 300px;
+  margin-inline: auto;
+  padding: clamp(20px, 4vw, 32px) 16px;
+}
+
+#bioboro .partner-card__visual img {
+  max-height: 380px;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  #fund .partner-card__visual img {
+    max-width: 340px;
+  }
+  #bioboro .partner-card__visual img {
+    max-height: 420px;
+  }
+}
+
 #help .help-card__body {
   padding: clamp(14px, 3vw, 18px);
 }
