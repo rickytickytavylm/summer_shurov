@@ -181,9 +181,7 @@
     { net: "Pinterest", handle: "dr_shurova", url: "https://ru.pinterest.com/dr_shurova", brand: "pinterest" },
     { net: "Yappy", handle: "dr.shurov", url: "https://yappy.media/n/dr.shurov", brand: "yappy" },
     { net: "Looky", handle: "dr.shurov", url: "https://share.looky.com/profile/dr.shurov", brand: "looky" },
-    { net: "Instagram", handle: "@shurov_school", url: "https://www.instagram.com/shurov_school", brand: "instagram", restricted: true },
-    { net: "Instagram", handle: "@dr.shurov", url: "https://www.instagram.com/dr.shurov", brand: "instagram", restricted: true },
-    { net: "Instagram", handle: "@shurov_rc", url: "https://www.instagram.com/shurov_rc", brand: "instagram", restricted: true }
+    { net: "Instagram", handle: "@dr.shurov", url: "https://www.instagram.com/dr.shurov", brand: "instagram", restricted: true }
   ];
 
   function brandIcon(brand) {
