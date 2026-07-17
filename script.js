@@ -159,7 +159,6 @@
     telegram: { file: "telegram" },
     youtube: { file: "youtube" },
     ok: { file: "odnoklassniki" },
-    pinterest: { file: "pinterest" },
     max: { img: "max.webp", full: true },
     dzen: { img: "dzen.webp", full: true, pad: true },
     rutube: { img: "rutube.webp", full: true, pad: true },
@@ -174,11 +173,10 @@
     { net: "TikTok", handle: "@doctor.shurov", url: "https://www.tiktok.com/@doctor.shurov", brand: "tiktok" },
     { net: "Telegram", handle: "Shurovhelp", url: "https://telegram.me/Shurovhelp", brand: "telegram" },
     { net: "MAX", handle: "Shurovhelp", url: "https://max.ru/Shurovhelp", brand: "max" },
-    { net: "Дзен", handle: "klinika_dr_shurova", url: "https://dzen.ru/klinika_dr_shurova", brand: "dzen" },
+    { net: "Дзен", handle: "dr_shurov", url: "https://dzen.ru/dr_shurov", brand: "dzen" },
     { net: "YouTube", handle: "@pervyy_shag", url: "https://youtube.com/@pervyy_shag", brand: "youtube" },
-    { net: "RuTube", handle: "channel 1816666", url: "https://rutube.ru/channel/1816666/videos/", brand: "rutube" },
-    { net: "Одноклассники", handle: "group", url: "https://ok.ru/group/70000035076228", brand: "ok" },
-    { net: "Pinterest", handle: "dr_shurova", url: "https://ru.pinterest.com/dr_shurova", brand: "pinterest" },
+    { net: "RuTube", handle: "dr.shurov", url: "https://rutube.ru/channel/1816666/videos/", brand: "rutube" },
+    { net: "Одноклассники", handle: "dr.shurov", url: "https://ok.ru/dr.shurov", brand: "ok" },
     { net: "Yappy", handle: "dr.shurov", url: "https://yappy.media/n/dr.shurov", brand: "yappy" },
     { net: "Looky", handle: "dr.shurov", url: "https://share.looky.com/profile/dr.shurov", brand: "looky" },
     { net: "Instagram", handle: "@dr.shurov", url: "https://www.instagram.com/dr.shurov", brand: "instagram", restricted: true }
@@ -534,7 +532,7 @@
         mo.disconnect();
         formHost.innerHTML =
           '<p class="modal__loading">Форма не загрузилась. Напишите нам напрямую: ' +
-          '<a href="mailto:info@perviyshag1.getcourse.ru" style="color:var(--apple-green,#34c759);font-weight:600;">info@perviyshag1.getcourse.ru</a></p>';
+          '<a href="mailto:kursysozavisimyh@yandex.ru" style="color:var(--apple-green,#34c759);font-weight:600;">kursysozavisimyh@yandex.ru</a></p>';
       }, 12000);
     }
 
