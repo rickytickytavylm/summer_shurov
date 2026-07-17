@@ -21,7 +21,7 @@ window.VIDEOS_DATA = {
       pinned: true,
       src: "assets/video/shorts.mp4",
       poster: "assets/video/shorts-poster.webp",
-      url: "https://www.instagram.com/reels/"
+      url: "https://www.instagram.com/dr.shurov"
     },
     {
       author: "Марина",
@@ -34,7 +34,7 @@ window.VIDEOS_DATA = {
       pinned: false,
       src: "assets/video/girl.mp4",
       poster: "assets/video/girl-poster.webp",
-      url: "https://www.instagram.com/reels/"
+      url: "https://www.instagram.com/dr.shurov"
     },
     {
       author: "Игорь",
@@ -47,7 +47,7 @@ window.VIDEOS_DATA = {
       pinned: false,
       src: "assets/video/near_forest.mp4",
       poster: "assets/video/near_forest-poster.webp",
-      url: "https://www.instagram.com/reels/"
+      url: "https://www.instagram.com/dr.shurov"
     }
   ]
 };

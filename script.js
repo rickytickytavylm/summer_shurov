@@ -289,7 +289,7 @@
     }
 
     grid.innerHTML = published.map(function (v) {
-      var instaUrl = v.url || "https://www.instagram.com/shurov_school/";
+      var instaUrl = v.url || "https://www.instagram.com/dr.shurov";
       var pin = v.pinned ? '<span class="ig-post__pin" title="Закреплено"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3h6a1 1 0 0 1 .8 1.6L14 7v4l2.5 2.5a1 1 0 0 1-.7 1.7H13v4l-1 2-1-2v-4H8.2a1 1 0 0 1-.7-1.7L10 11V7L8.2 4.6A1 1 0 0 1 9 3z"/></svg></span>' : "";
       var poster = v.poster ? ' poster="' + escapeHtml(v.poster) + '"' : "";
 

@@ -290,6 +290,11 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.04em; line-height: 
     filter: none;
   }
 
+  /* Логотип крупнее на первом экране (desktop), при скролле — компактный */
+  .header.header--hero .brand img {
+    height: 73px;
+  }
+
   .brand__logo {
     display: block;
     line-height: 0;
